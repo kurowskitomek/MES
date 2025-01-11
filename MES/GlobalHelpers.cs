@@ -62,7 +62,38 @@ namespace MES
             }
         }
 
-        public static void PrintTable(string title, string[] headers, double[][] data)
+        public static string BuildRawMatrix(double[][] matrix)
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+
+            for (int i = 0; i < matrix.Length; i++)
+            {
+                for (int j = 0; j < matrix[i].Length; j++)
+                {
+                    double val = matrix[i][j];
+                    string output = "";
+
+                    if (Math.Abs(val) < 0.001)
+                    {
+                        val = Math.Round(val, 0);
+                        output = string.Format("{0,8:0}", val);
+                    }
+                    else
+                    {
+                        val = Math.Round(val, 3);
+                        output = string.Format("{0,8:0.000}", val);
+                    }
+
+                    stringBuilder.Append(output);
+                }
+
+                stringBuilder.AppendLine();
+            }
+
+            return stringBuilder.ToString();
+        }
+
+        public static string BuildTable(string title, string[] headers, double[][] data)
         {
             StringBuilder stringBuilder = new StringBuilder(title);
 
@@ -116,7 +147,7 @@ namespace MES
                 stringBuilder.AppendLine();
             }
 
-            Console.Write(stringBuilder.ToString());
+            return stringBuilder.ToString();
         }
 
         public static void PrintMatrix(double[][] matrix)
@@ -169,9 +200,14 @@ namespace MES
         }
 
         public static void PrintMinMax(double[][] min_max)
+        {
+            Console.Write(BuildMinMax(min_max));
+        }
+
+        public static string BuildMinMax(double[][] min_max)
         {            
             string[] headers = [ "Time [s]", "Min temp [*C]", "Max temp [*C]" ];
-            PrintTable("Minimum and Maximum Temperatures", headers, min_max);
+            return BuildTable("Minimum and Maximum Temperatures", headers, min_max);
         }
 
         public static int mod(int x, int m)
@@ -234,7 +270,7 @@ namespace MES
             DataParser parser = new DataParser(elemUniv);
             GlobalData globalData = parser.Parse(text);
 
-            PrintGlobalData(globalData);
+            //PrintGlobalData(globalData);
 
             return globalData;
         }

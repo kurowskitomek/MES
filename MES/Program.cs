@@ -17,9 +17,14 @@ namespace MES
             //TestCases.TestCase0();           
             //TestCases.TestCase1();
             //TestCases.TestCase2();
-            GlobalData globalData_test3 = TestCases.TestCase3();
+            //double[][] solution_3 = TestCases.TestCase3();
             //GlobalData globalData_test4 = TestCases.TestCase4();
-            
+            //GlobalData globalData_test5 = TestCases.TestCase5();
+
+            Console.WriteLine("Calculating test cases ...");
+
+            TestCases.FinalTestCase();
+
             Console.ReadLine();
         }
     }
