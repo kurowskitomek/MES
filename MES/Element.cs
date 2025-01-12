@@ -1,6 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-
-namespace MES
+﻿namespace MES
 {
     public class Element
     {
