@@ -270,7 +270,7 @@ namespace MES
             DataParser parser = new DataParser(elemUniv);
             GlobalData globalData = parser.Parse(text);
 
-            PrintGlobalData(globalData);
+            //PrintGlobalData(globalData);
 
             return globalData;
         }

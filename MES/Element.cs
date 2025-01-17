@@ -167,8 +167,8 @@
                 if (Nodes[t].BC && Nodes[GlobalHelpers.mod(t + 1, 4)].BC)
                 {
                     double detJ = Math.Sqrt(
-                        Math.Pow(Nodes[t].X - Nodes[GlobalHelpers.mod(t - 1, 4)].X, 2) +
-                        Math.Pow(Nodes[t].Y - Nodes[GlobalHelpers.mod(t - 1, 4)].Y, 2)) / 2.0;
+                        Math.Pow(Nodes[t].X - Nodes[GlobalHelpers.mod(t + 1, 4)].X, 2) +
+                        Math.Pow(Nodes[t].Y - Nodes[GlobalHelpers.mod(t + 1, 4)].Y, 2)) / 2.0;
 
                     for (int k = 0; k < _elemUniv.Surfaces[t].N.Length; k++)
                         for (int i = 0; i < 4; i++)

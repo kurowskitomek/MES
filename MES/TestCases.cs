@@ -112,7 +112,7 @@ namespace MES
         public static double[][] TestCase4()
         {
             string path = "./Test2_4_4_MixGrid.txt";
-            int n = 16;
+            int n = 9;
 
             return BaseTestCaseInput(path, n);
         }
